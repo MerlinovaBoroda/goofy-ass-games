@@ -1,0 +1,27 @@
+.box {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.card {
+    display: grid;
+    place-items: center;
+    /* gap: 0.7rem; */
+    background: rgb(243, 241, 108, 0.5);
+    padding: 1rem;
+    min-height: 300px;
+    border-radius: 15px;
+  }
+
+.card img {
+    width: 170px;
+    height: 100%;
+    text-align: center;
+    color: red;
+}
+
+.card button {
+    text-decoration: none;
+    margin: 1rem;
+}
