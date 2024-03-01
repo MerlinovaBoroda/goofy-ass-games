@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import "./TicTacToe.css"
 
 
-function Cell({value, onCellClick}) {
-  return <button className='cell' onClick={onCellClick}>{value}</button>
+function Cell({value, onCellClick, index}) {
+  return <button data-index={index} className='cell' onClick={onCellClick}>{value}</button>
 }
 
 export default function TicTacToe() {
@@ -41,7 +41,8 @@ export default function TicTacToe() {
   }
 
 
-  function handleClick(index) {
+  function handleClick(event) {
+    const index = event.target.dataset.index;
     if(cells[index] || checkWinner(cells)){
       return;
     }
@@ -71,7 +72,8 @@ export default function TicTacToe() {
               return <Cell
                         key={index}
                         value={cell}
-                        onCellClick={() => handleClick(index)}
+                        onCellClick={handleClick}
+                        index={index}
                       />
             })
           }
