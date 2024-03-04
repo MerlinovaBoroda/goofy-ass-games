@@ -31,7 +31,6 @@ export default function TicTacToe() {
     return;
   }
 
-
   const winner = checkWinner(cells);
   let status;
   if (winner) {

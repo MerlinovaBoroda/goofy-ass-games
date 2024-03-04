@@ -1,0 +1,21 @@
+.tile {
+  transition-property: transform;
+  transition-duration: 100ms;
+  transform: scale(1);
+
+  width: 150px;
+  height: 150px; 
+  border: 2px solid #b3661f;
+  border-radius: 10px;
+  box-shadow: 0 0 0 2px #b3661f;
+  background-color: #c0d3dbc7;
+  line-height: 140px;
+  font-size: 70px;
+  text-align: center;
+}
+
+.row {
+    display: flex; 
+    justify-content: center;
+    
+}

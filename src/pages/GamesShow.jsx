@@ -12,9 +12,9 @@ export default function GamesShow() {
             "url": "/tictactoe"
         },
         "2048": {
-            "title": "2048 - to be created...",
+            "title": "2048",
             "description": "Very simple 2048 game",
-            "image": "",
+            "image": "https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxtLk6OhBslYVcJsLgZiUqOoenyfjVJCmlt9nsueggrfUQINiEYHmyCKsVNjt7icBprNCGhuiVEGZaDFTfTl0g3Y-&format=source",
             "url": "/2048"
         },
     }
