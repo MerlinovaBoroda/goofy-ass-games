@@ -10,12 +10,6 @@ function Tile ({value, handleKeyDown}) {
 }
 
 export default function Game2048() {
-  const emtpyBoard = [
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0]
-  ]
   const [board, setBoard] = useState([
     [0, 0, 0, 0],
     [0, 0, 0, 0],
@@ -27,12 +21,17 @@ export default function Game2048() {
 
   // Initialize
   const init = () => {
-    let newBoard = cloneDeep(board);
+    const emtpyBoard = [
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0]
+    ]
     
-    addRandomTile(newBoard)
-    addRandomTile(newBoard)
+    addRandomTile(emtpyBoard)
+    addRandomTile(emtpyBoard)
 
-    setBoard(newBoard)
+    setBoard(emtpyBoard)
   }
 
   //Add random value to available tiles
@@ -47,7 +46,7 @@ export default function Game2048() {
       const rand2 = Math.floor(Math.random() * 4)
 
       if(newBoard[rand1][rand2] === 0) {
-        newBoard[rand1][rand2] = Math.random() > 0.9 ? 2 : 4
+        newBoard[rand1][rand2] = Math.random() > 0.3 ? 2 : 4
         added = true
       }
     }
@@ -277,7 +276,6 @@ export default function Game2048() {
   };
   
 
-
   useEffect(() => {
     init();
     // eslint-disable-next-line
@@ -285,8 +283,7 @@ export default function Game2048() {
 
   useEffect(() => {
     if (gameOver) {
-      // alert('Game Over!')
-      setBoard(emtpyBoard)
+      alert('Game Over!')
       init()
     }
     // eslint-disable-next-line
