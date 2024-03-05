@@ -17,6 +17,12 @@ export default function GamesShow() {
             "image": "https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxtLk6OhBslYVcJsLgZiUqOoenyfjVJCmlt9nsueggrfUQINiEYHmyCKsVNjt7icBprNCGhuiVEGZaDFTfTl0g3Y-&format=source",
             "url": "/2048"
         },
+        "todo": {
+            "title": "todo",
+            "description": "Very simple will be created in the future",
+            "image": "https://picsum.photos/200",
+            "url": "/todo"
+        },
     }
 
   return (

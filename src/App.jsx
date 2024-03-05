@@ -13,6 +13,7 @@ export default function App() {
           <Route index element={<GamesShow />} />
           <Route path="tictactoe" element={<TicTacToe />} />
           <Route path="2048" element={<Game2048 />} />
+          <Route path="todo" element={<GamesShow />} />
         </Route>
       </Routes>
     </BrowserRouter>

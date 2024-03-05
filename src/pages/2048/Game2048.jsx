@@ -3,9 +3,9 @@ import "./Game2048.css"
 import cloneDeep from 'lodash.clonedeep';
 import {setColor, useEvent} from './utilityFun.jsx'
 
-function Tile ({animationName, value, handleKeyDown}) {
+function Tile ({value, handleKeyDown}) {
   return <div tabIndex={0}
-              className={`tile ${animationName}`}
+              className={`tile`}
               onKeyDown={handleKeyDown}
               style={{
                 backgroundColor: setColor(value),
@@ -24,7 +24,6 @@ export default function Game2048() {
   ])
 
   const [gameOver, setGameOver] = useState(false)
-  const [animationName, setAnimationName] = useState(null)
 
   // Initialize
   const init = () => {
@@ -241,19 +240,15 @@ export default function Game2048() {
   const handleKeyDown = (event) => {
     switch (event.key) {
       case 'ArrowLeft':
-        setAnimationName('slide-left');
         swipeLeft()
         break;
       case 'ArrowRight':
-        setAnimationName('slide-right');
         swipeRight()
         break;
       case 'ArrowUp':
-        setAnimationName('slide-up');
         swipeUp()
         break;
       case 'ArrowDown':
-        setAnimationName('slide-down');
         swipeDown()
         break;
       default:
@@ -312,7 +307,7 @@ export default function Game2048() {
                   {
                     row.map((tile, tileIndex) => {
                       return (
-                        <Tile key={tileIndex} value={tile} animationName={animationName}/>
+                        <Tile key={tileIndex} value={tile}/>
                       )
                     })
                   }
