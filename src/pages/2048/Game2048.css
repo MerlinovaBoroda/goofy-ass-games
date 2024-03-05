@@ -1,21 +1,73 @@
 .tile {
-  transition-property: transform;
-  transition-duration: 100ms;
-  transform: scale(1);
-
-  width: 150px;
-  height: 150px; 
-  border: 2px solid #b3661f;
-  border-radius: 10px;
-  box-shadow: 0 0 0 2px #b3661f;
-  background-color: #c0d3dbc7;
-  line-height: 140px;
-  font-size: 70px;
+  width: 130px;
+  height: 130px; 
+  /* border: 2px solid #b3661f; */
+  border-radius: 5px;
+  background-color: rgba(220, 227, 231, 0.78);
+  line-height: 130px;
+  font-size: 50px;
   text-align: center;
 }
+
 
 .row {
     display: flex; 
     justify-content: center;
-    
+    gap: 3px;
+}
+
+.boardContainer {
+  background: linear-gradient(-45deg, #746b63, #9e9180);
+  margin: 1em;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 5px rgba(190, 194, 196);
+  display: grid;
+  gap: 3px;
+}
+
+
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-left {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-right {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

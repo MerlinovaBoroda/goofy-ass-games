@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import "./Game2048.css"
 import cloneDeep from 'lodash.clonedeep';
-import {useEvent} from './useEvent.jsx'
+import {setColor, useEvent} from './utilityFun.jsx'
 
-function Tile ({value, handleKeyDown}) {
-  return <div tabIndex={0} className='tile' onKeyDown={handleKeyDown}>
+function Tile ({animationName, value, handleKeyDown}) {
+  return <div tabIndex={0}
+              className={`tile ${animationName}`}
+              onKeyDown={handleKeyDown}
+              style={{
+                backgroundColor: setColor(value),
+              }}
+  >
     {value !== 0 ? value.toString() : ''} 
   </div>
 }
@@ -18,6 +24,7 @@ export default function Game2048() {
   ])
 
   const [gameOver, setGameOver] = useState(false)
+  const [animationName, setAnimationName] = useState(null)
 
   // Initialize
   const init = () => {
@@ -34,7 +41,6 @@ export default function Game2048() {
     setBoard(emtpyBoard)
   }
 
-  //Add random value to available tiles
   const addRandomTile = (newBoard) => {
     let added = false;
     let boardIsFull = false;
@@ -52,7 +58,6 @@ export default function Game2048() {
     }
   }
 
-  // Swipe Left
   const swipeLeft = (dummy) => {
     let oldGrid = board;
     let newBoard = cloneDeep(board);
@@ -236,15 +241,19 @@ export default function Game2048() {
   const handleKeyDown = (event) => {
     switch (event.key) {
       case 'ArrowLeft':
+        setAnimationName('slide-left');
         swipeLeft()
         break;
       case 'ArrowRight':
+        setAnimationName('slide-right');
         swipeRight()
         break;
       case 'ArrowUp':
+        setAnimationName('slide-up');
         swipeUp()
         break;
       case 'ArrowDown':
+        setAnimationName('slide-down');
         swipeDown()
         break;
       default:
@@ -295,7 +304,7 @@ export default function Game2048() {
   return (
     <div className="gameContainer">
         <h1>2048</h1>
-        <div>
+        <div className='boardContainer'>
           {
             board.map((row, rowIndex) => {
               return (
@@ -303,7 +312,7 @@ export default function Game2048() {
                   {
                     row.map((tile, tileIndex) => {
                       return (
-                        <Tile key={tileIndex} value={tile}/>
+                        <Tile key={tileIndex} value={tile} animationName={animationName}/>
                       )
                     })
                   }
@@ -312,7 +321,8 @@ export default function Game2048() {
             })
           }
         </div>
-        {/* <button onClick={handleRestart}>Restart</button> */}
+        <br/>
+        <button onClick={init}>Restart</button>
     </div>
   )
 }
